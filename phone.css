@@ -1,0 +1,158 @@
+/*************************************************************************************************************************************************
+header
+*************************************************************************************************************************************************/
+header {
+    border-bottom: solid 1px black;
+    padding-bottom: 1em;
+    text-align: center;
+}
+
+#appDescription, #appName {
+    margin: 0;
+}
+
+/*************************************************************************************************************************************************
+main
+*************************************************************************************************************************************************/
+main {
+    margin-top: 1em;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: .25em 1em;
+    text-decoration: none;
+    user-select: none;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox:checked  + .trigger::before {
+    opacity: 1;
+    transform: rotateZ(-45deg);
+}
+
+.checkbox:disabled + .trigger::after {
+    background-color: #eeeeee;
+}
+
+#mainbody {
+    margin-bottom: .25em;
+    text-align: center;
+}
+
+#markTypeToUse {
+    padding: 5px;
+    width: 80%;
+}
+
+#operationButton {
+    margin-top: 12px;
+}
+
+.option {
+    border: solid 1px black;
+    margin: 32px auto;
+    padding: 16px;
+    position: relative;
+    width: 50%;
+}
+
+.optionName {
+    background-color: white;
+    left: -24px;
+    margin-bottom: 8px;
+    padding-right: 5px;
+    position: absolute;
+    top: -12px;
+}
+
+.option .content {
+    display: block;
+    bottom: 8px;
+    left: .5em;
+    position: relative;
+    user-select: none;
+}
+
+.option .subContent {
+    display: block;
+    left: .7em;
+    position: relative;
+    user-select: none;
+}
+
+#password {
+    font-size: .7em;
+    display: inline-block;
+    padding: 8px 0;
+    text-align: center;
+    width: 27em;
+}
+
+#passwordLengthInput {
+    vertical-align: top;
+    width: 32px;
+}
+
+#passwordLengthSlide {
+    display: inline;
+}
+
+#options {
+    margin: 1em auto;
+}
+
+#pw-length-inputs {
+    margin-top: .5em;
+}
+
+.trigger {
+    cursor: pointer;
+    display: block;
+    margin: 3px 0;
+    padding: 0 0 0 calc(1em + 6.5px);
+    position: relative;
+    user-select: none;
+}
+
+.trigger::after {
+    content: '';
+    border: 1px solid darkgray;
+    height: 1em;
+    left: 0;
+    position: absolute;
+    top: .1em;
+    transition-duration: .5s;
+    width: 1em;
+}
+
+.trigger::before {
+    content: '';
+    border-bottom: .15em solid black;
+    border-left: .15em solid black;
+    display: inline-block;
+    left: .2em;
+    height: .35em;
+    opacity: 0;
+    position: absolute;
+    top: .3em;
+    transform: rotateZ(-90deg);
+    transition-duration: .5s;
+    width: .6em;
+}
+
+/*************************************************************************************************************************************************
+footer
+*************************************************************************************************************************************************/
+footer {
+    border-top: solid 1px black;
+}
+
+#copyright {
+    text-align: center;
+}

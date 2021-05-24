@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel = "stylesheet" href = "index.css"> -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+    <title>Eぱすわーどめーかー -お手軽に強力なパスワード！-</title>
+    <script src="head.js"></script>
+    <script>
+        var link = document.createElement("link");
+
+        link.setAttribute("rel", "stylesheet");
+        if (/iPhone|iPad|iPod|Android/g.test(window.navigator.userAgent)) {
+            link.setAttribute("href", "phone.css");
+        } else {
+            link.setAttribute("href", "pc.css");
+        }
+
+        document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <p style="text-align: center;">JavaScriptを有効にしてください。</p>
+    </noscript>
+
+    <header>
+        <h1 id="appName">Eぱすわーどめーかー</h1>
+        <p id="appDescription">お手軽に強力なパスワードを作成できるアプリケーションです。</p>
+    </header>
+
+    <main>
+        <div id="mainbody">
+            <input id="password" type="text" readonly>
+            <div id="operationButton">
+                <span class="button" id="createPasswordButton">作成</span>
+                <span class="button" id="copyPasswordButton" data-clipboard-target='#password'>コピー</span>
+            </div>
+        </div>
+
+        <div id="options">
+            <div id='pw-length' class='option'>
+                <label class="optionName">パスワードの長さ</label>
+                <div id='pw-length-inputs'>
+                    <input id="passwordLengthSlide" type="range" min="1" max="50" value="10">
+                    <input id="passwordLengthInput" type="tel" value="10">
+                </div>
+            </div>
+
+            <div id='pw-char' class='option'>
+                <label class="optionName">使用する文字</label>
+                <!--  -->
+                <input class='checkbox' id="useAlphabet" type="checkbox" checked>
+                <label class="trigger" for = 'useAlphabet'>アルファベット</label>
+                <!--  -->
+                <input class='checkbox' id="useUpperCase" type="checkbox" checked>
+                <label class="subContent trigger" for='useUpperCase'>大文字</label>
+                <!--  -->
+                <input class='checkbox' id="useLowerCase" type="checkbox" checked>
+                <label class="subContent trigger" for='useLowerCase'>小文字</label>
+                <!--  -->
+                <input class='checkbox' id="useNumber" type="checkbox" checked>
+                <label class="trigger" for='useNumber'>数字</label>
+                <!--  -->
+                <input class='checkbox' id="useMark" type="checkbox" checked>
+                <label class="trigger" for='useMark'>記号</label>
+                <!--  -->
+                <label class="subContent">
+                    <input id="markTypeToUse" type="text" placeholder="使用する記号を指定(任意)">
+                </label>
+            </div>
+
+            <div id='other' class='option'>
+                <label class="optionName">その他のオプション</label>
+                <input class='checkbox' id="useAvoidanceAmbiguous" type="checkbox">
+                <label class="trigger" for='useAvoidanceAmbiguous'>曖昧さ回避</label>
+            </div>
+        </div>
+
+        <script src="init.js"></script>
+    </main>
+
+    <footer>
+        <p id="copyright"></p>
+
+        <script>
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            document.getElementById("copyright").innerHTML = "&#169 2018 - " + nowYear + " Akatsuki";
+        </script>
+    </footer>
+
+</body>
+
+</html>
