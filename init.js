@@ -6,14 +6,24 @@ document.getElementById("createPasswordButton").addEventListener("click", functi
 });
 
 // コピーボタン
-document.getElementById("copyPasswordButton").addEventListener("click", function() {
-    var password = document.getElementById("password");
-
-    if (password.value == "") {
-        alert("パスワードがありません。");
+function copyPassword(text) {
+    if(text == "") {
+        alert('パスワードがありません。');
         return;
     }
-    password.select();
+
+    navigator.clipboard.writeText(text)
+    .then(() => {
+        console.log('corrected');
+        alert('パスワードをコピーしました！');
+    })
+    .catch(err => {
+        console.error('failed');
+    });
+}
+document.getElementById("copyPasswordButton").addEventListener("click", () => {
+    let password = document.getElementById('password').value;
+    copyPassword(password);
 });
 
 // スライドバーと長さのノード
