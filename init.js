@@ -1,7 +1,7 @@
 // GUIのイベントを設定
 
 // 作成ボタン
-document.getElementById("createPasswordButton").addEventListener("click", function() {
+$("#createPassword").click(() => {
     setPassword();
 });
 
@@ -21,10 +21,12 @@ function copyPassword(text) {
         console.error('failed');
     });
 }
+/*
 document.getElementById("copyPasswordButton").addEventListener("click", () => {
     let password = document.getElementById('password').value;
     copyPassword(password);
 });
+*/
 
 // スライドバーと長さのノード
 var passwordLengthSlideBar = document.getElementById("passwordLengthSlide");
@@ -49,20 +51,10 @@ passwordLengthDirect.addEventListener("blur", function() {
     }
 });
 
-// オプションのアルファベットからチェックを外したら大/小文字のチェックも外すイベント
-var checkboxAlphabet = document.getElementById("useAlphabet");
-var checkboxUpperCase = document.getElementById("useUpperCase");
-var checkboxLowerCase = document.getElementById("useLowerCase");
-
-checkboxAlphabet.addEventListener("change", function() {
-    if (!checkboxAlphabet.checked) {
-        checkboxUpperCase.checked = checkboxLowerCase.checked = false;
-        checkboxUpperCase.setAttribute("disabled", "disabled");
-        checkboxLowerCase.setAttribute("disabled", "disabled");
-    } else {
-        checkboxUpperCase.removeAttribute("disabled", "");
-        checkboxLowerCase.removeAttribute("disabled", "");
-    }
+// チェックボックスのラベルをクリックしたらアニメーション用のクラスを付与/除去する
+$(".checkbox > input[type = \"checkbox\"").click(function() {
+    $(this).parent().toggleClass("checked");
+    console.log(this);
 });
 
 // 記号からチェックを外したら使用する記号のノードを読み取り専用にするイベントを設定

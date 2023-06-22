@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <label>
+            <input id = "checkbox" type = "checkbox">
+            Label 1
+        </label>
+        <script>
+            document.getElementById("checkbox").addEventListener("click", function() {
+                console.log("hello, world");
+            });
+            /*
+            $(".click").click(() => {
+                // alert("hello world");
+                console.log("hello, world");
+            });
+            */
+        </script>
+    </body>
+</html>

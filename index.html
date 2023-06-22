@@ -7,6 +7,7 @@
     <!-- <link rel = "stylesheet" href = "index.css"> -->
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title>Pass工房 -お手軽に強力なパスワード！-</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="head.js"></script>
     <script>
         var link = document.createElement("link");
@@ -33,16 +34,8 @@
     </header>
 
     <main>
-        <div id="mainbody">
-            <input id="password" type="text" readonly>
-            <div id="operationButton">
-                <span class="button" id="createPasswordButton">作成</span>
-                <span class="button" id="copyPasswordButton" data-clipboard-target='#password'>コピー</span>
-            </div>
-        </div>
-
         <div id="options">
-            <div id='pw-length' class='option'>
+            <div id='pw-length' class='option-box'>
                 <label class="optionName">パスワードの長さ</label>
                 <div id='pw-length-inputs'>
                     <input id="passwordLengthSlide" type="range" min="1" max="50" value="10">
@@ -50,34 +43,44 @@
                 </div>
             </div>
 
-            <div id='pw-char' class='option'>
+            <div id='pw-char' class='option-box'>
                 <label class="optionName">使用する文字</label>
-                <!--  -->
-                <input class='checkbox' id="useAlphabet" type="checkbox" checked>
-                <label class="trigger" for = 'useAlphabet'>アルファベット</label>
-                <!--  -->
-                <input class='checkbox' id="useUpperCase" type="checkbox" checked>
-                <label class="subContent trigger" for='useUpperCase'>大文字</label>
-                <!--  -->
-                <input class='checkbox' id="useLowerCase" type="checkbox" checked>
-                <label class="subContent trigger" for='useLowerCase'>小文字</label>
-                <!--  -->
-                <input class='checkbox' id="useNumber" type="checkbox" checked>
-                <label class="trigger" for='useNumber'>数字</label>
-                <!--  -->
-                <input class='checkbox' id="useMark" type="checkbox" checked>
-                <label class="trigger" for='useMark'>記号</label>
-                <!--  -->
-                <label class="subContent">
+                
+                <label class="checkbox">
+                    <input id="useUpperCase" type="checkbox" checked>
+                    アルファベット(大文字)
+                </label>
+
+                <label class="checkbox">
+                    <input id="useLowerCase" type="checkbox" checked>
+                    アルファベット(小文字)
+                </label>
+
+                <label class="checkbox">
+                    <input id="useNumber" type="checkbox" checked>
+                    数字
+                </label>
+
+                <label class="checkbox">
+                    <input id="useMark" type="checkbox" checked>
+                    記号
                     <input id="markTypeToUse" type="text" placeholder="使用する記号を指定(任意)">
                 </label>
             </div>
 
-            <div id='other' class='option'>
+            <div id='other' class='option-box'>
                 <label class="optionName">その他のオプション</label>
-                <input class='checkbox' id="useAvoidanceAmbiguous" type="checkbox">
-                <label class="trigger" for='useAvoidanceAmbiguous'>曖昧さ回避</label>
+                <label class="checkbox">
+                    <input id="useAvoidanceAmbiguous" type="checkbox">
+                    曖昧さ回避
+                </label>
             </div>
+        </div>
+
+        <button id = "createPassword" class = "button" type = "button">Create!</button>
+
+        <div id = "passwords">
+            <p>生成したパスワード</p>
         </div>
 
         <script src="init.js"></script>

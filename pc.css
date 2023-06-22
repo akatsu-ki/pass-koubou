@@ -19,8 +19,17 @@ header {
 /*************************************************************************************************************************************************
 main
 *************************************************************************************************************************************************/
+/*
 main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1em;
+}
+*/
+
+main > * {
+    margin: 0 16px;
 }
 
 .button {
@@ -32,34 +41,18 @@ main {
     user-select: none;
 }
 
-.checkbox {
-    display: none;
-}
-
-.checkbox:checked  + .trigger::before {
-    opacity: 1;
-    transform: rotateZ(-45deg);
-}
-
-.checkbox:disabled + .trigger::after {
-    background-color: #eeeeee;
-}
-
-#mainbody {
-    margin-bottom: .25em;
-    text-align: center;
-}
-
 #markTypeToUse {
-    padding: 8px;
+    padding: 5px;
 }
 
 #operationButton {
     margin-top: 12px;
 }
 
-.option {
+.option-box {
     border: solid 1px black;
+    display: flex;
+    flex-direction: column;
     margin: 32px auto;
     padding: 16px;
     position: relative;
@@ -75,7 +68,7 @@ main {
     top: -12px;
 }
 
-.option .content {
+.option-box .content {
     display: block;
     bottom: 8px;
     left: .5em;
@@ -83,11 +76,16 @@ main {
     user-select: none;
 }
 
-.option .subContent {
+.option-box .subContent {
     display: block;
     left: .7em;
     position: relative;
     user-select: none;
+}
+
+#passwords {
+    height: 100%;
+    /* width: 50%; */
 }
 
 #password {
@@ -106,25 +104,30 @@ main {
     display: inline;
 }
 
-#options {
-    margin: 1em auto;
-    width: 65%;
-}
-
 #pw-length-inputs {
     margin-top: .5em;
 }
 
-.trigger {
-    cursor: pointer;
+.checkbox input[type = "checkbox"] {
+    display: none;
+}
+
+.checkbox input[type = "text"] {
     display: block;
-    margin: 3px 0;
+    /* margin-left: 0.5em; */
+}
+
+.checkbox {
+    cursor: pointer;
+    display: inline-block;
+    margin: 3px auto;
+    min-width: 11.6em;
     padding: 0 0 0 calc(1em + 6.5px);
     position: relative;
     user-select: none;
 }
 
-.trigger::after {
+.checkbox::after {
     content: '';
     border: 1px solid darkgray;
     height: 1em;
@@ -135,7 +138,7 @@ main {
     width: 1em;
 }
 
-.trigger::before {
+.checkbox::before {
     content: '';
     border-bottom: .15em solid black;
     border-left: .15em solid black;
@@ -148,6 +151,11 @@ main {
     transform: rotateZ(-90deg);
     transition-duration: .5s;
     width: .6em;
+}
+
+.checked::before {
+    opacity: 1;
+    transform: rotateZ(-45deg);
 }
 
 /*************************************************************************************************************************************************
